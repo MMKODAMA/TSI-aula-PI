@@ -37,4 +37,10 @@ class ProductController extends Controller
     public function trash(){
         return view('product.trash')->with('products',Product::onlyTrashed()->get());
     }
+    public function restore($product_id){
+        $product = Product::onlyTrashed()->where('id',$product_id)->first();
+        $product->restore();
+        session()->flash('success','Produto restaurado com Sucesso!');
+        return redirect(route('product.index'));
+    }
 }

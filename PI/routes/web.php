@@ -26,6 +26,7 @@ Route::get('/product/destroy/{product}',[ProductController::class,'destroy'])->n
 Route::get('/product/edit/{product}', [ProductController::class,'edit'])->name('product.edit');
 Route::put('/product/edit/{product}', [ProductController::class,'update'])->name('product.update');
 Route::get('/product/trash', [ProductController::class , 'trash'])->name('product.trash');
+Route::get('/product/trash/restore/{product}', [ProductController::class , 'restore'])->name('product.restore');
 
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/create',[CategoryController::class, 'store'])->name('category.store');
@@ -33,3 +34,5 @@ Route::get('/category',[CategoryController::class,'index'])->name('category.inde
 Route::get('/category/destroy/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
 Route::get('/category/edit/{category}', [CategoryController::class,'edit'])->name('category.edit');
 Route::put('/category/edit/{category}', [CategoryController::class,'update'])->name('category.update');
+Route::get('/category/trash', [CategoryController::class , 'trash'])->name('category.trash');
+Route::get('/category/trash/restore/{category}', [CategoryController::class , 'restore'])->name('category.restore');

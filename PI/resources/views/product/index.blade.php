@@ -35,3 +35,6 @@
 <a href="http://127.0.0.1:8000/product/create">
     <input type="submit" value="Criar"/>
    </a>
+   <a href="http://127.0.0.1:8000/product/trash">
+    <input type="submit" value="Trash"/>
+   </a>
