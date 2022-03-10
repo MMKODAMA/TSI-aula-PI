@@ -3,6 +3,12 @@
 </div>
 
 <table>
+    <table border="1">
+
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+        </tr>
     @foreach($categories as $category)
 
     <tr>
@@ -14,3 +20,7 @@
     </tr>
     @endforeach
 </table>
+<br>
+<a href="http://127.0.0.1:8000/category/create">
+    <input type="submit" value="Criar"/>
+   </a>

@@ -25,13 +25,12 @@
         <td>{{$product->description}}</td>
         <td>{{$product->price}}</td>
         <td>{{$product->stock}}</td>
-        <td><a href="{{ route('product.edit', $product->id)}}">Editar</a></td>
-        <td><a href="{{ route('product.destroy', $product->id)}}">Apagar</a></td>
+        <td><a href="{{ route('product.edit', $product->id)}}">Restaurar</a></td>
 
     </tr>
     @endforeach
 </table>
 <br>
-<a href="http://127.0.0.1:8000/product/create">
-    <input type="submit" value="Criar"/>
+<a href="http://127.0.0.1:8000/product">
+    <input type="submit" value="Voltar"/>
    </a>
