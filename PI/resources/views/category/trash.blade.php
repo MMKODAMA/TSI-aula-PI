@@ -2,25 +2,30 @@
     {{ session()->get('success')}}
 </div>
 
-<table>
-    <table border="1">
+@extends('layouts.app')
+@section('content')
+
+<div class="container">
+
+    <table class="table table-secondary table-striped">
+        <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">Nome</td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach($categories as $category)
 
         <tr>
-            <td>ID</td>
-            <td>Nome</td>
+            <td>{{$category->id}}</td>
+            <td>{{$category->name}}</td>
+            <td><a href="{{ route('category.restore', $category->id)}}">Restaurar</a></td>
         </tr>
-    @foreach($categories as $category)
-
-    <tr>
-        <td>{{$category->id}}</td>
-        <td>{{$category->name}}</td>
-        <td><a href="{{ route('category.restore', $category->id)}}">Restaurar</a></td>
-
-    </tr>
-    @endforeach
-</table>
-<br>
-<a href="http://127.0.0.1:8000/category">
-    <input type="submit" value="Voltar"/>
-   </a>
-
+        @endforeach
+    </table>
+</div>
+    <br>
+<a class="btn btn-lg btn-primary me-5" href="{{route('category.index')}}">Voltar</a>
+@endsection

@@ -1,6 +1,12 @@
-<form action="{{route('category.update', $category->id)}}" method="POST">
+@extends('layouts.app')
+@section('content')
+<form class="form" action="{{route('category.update', $category->id)}}" method="POST">
     @csrf
     @method('PUT')
-    Nome da Categoria: <input type="text" name="name" value="{{$category->name}}">
-    <button type="submit">Enviar</button>
+    <div class="container">
+        <label for="name" class="form-label">Nome da Categoria:</label>
+        <input class="form-control mb-3" type="text" name="name" value="{{$category->name}}">
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </div>
 </form>
+@endsection

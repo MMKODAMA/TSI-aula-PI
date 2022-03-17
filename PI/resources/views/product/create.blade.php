@@ -10,5 +10,10 @@
         <option value="{{$category->id}}">{{$category->name}}</option>
         @endforeach
     </select>
+    <select multiple name="tags[]">
+        @foreach ($tags as $tag)
+        <option value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
+    </select>
     <button type="submit">Enviar</button>
 </form>

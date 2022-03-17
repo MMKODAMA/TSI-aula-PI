@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Tag;
 
 
 class ProductController extends Controller
@@ -14,10 +15,11 @@ class ProductController extends Controller
     }
 
     public function create(){
-        return view('product.create')->with('categories',Category::all());
+        return view('product.create')->with(['categories' => Category::all(),'tags' => Tag::all()]);
     }
     public function store(Request $request){
-        Product::create($request->all());
+        $product=Product::create($request->all());
+        $product->Tags()->sync($request->tags);
         session()->flash('success','Produto Criado com Sucesso!');
         return redirect(route('product.index'));
     }

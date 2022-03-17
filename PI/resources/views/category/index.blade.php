@@ -2,28 +2,33 @@
     {{ session()->get('success')}}
 </div>
 
-<table>
-    <table border="1">
+@extends('layouts.app')
+@section('content')
 
+<div class="container">
+<table class="table table-secondary table-striped">
+    <thead>
         <tr>
-            <td>ID</td>
-            <td>Nome</td>
+            <td scope="col">ID</td>
+            <td scope="col">Nome</td>
+            <td scope="col">qtd</td>
+            <td></td>
+            <td></td>
         </tr>
+    </thead>
     @foreach($categories as $category)
 
     <tr>
         <td>{{$category->id}}</td>
         <td>{{$category->name}}</td>
+        <td>{{$category->Products->count()}}</td>
         <td><a href="{{ route('category.edit', $category->id)}}">Editar</a></td>
         <td><a href="{{ route('category.destroy', $category->id)}}">Apagar</a></td>
 
     </tr>
     @endforeach
 </table>
+</div>
 <br>
-<a href="http://127.0.0.1:8000/category/create">
-    <input type="submit" value="Criar"/>
-   </a>
-   <a href="http://127.0.0.1:8000/category/trash">
-    <input type="submit" value="Trash"/>
-   </a>
+<a class="btn btn-lg btn-primary me-5" href="{{route('category.create')}}">Criar</a>
+   @endsection
