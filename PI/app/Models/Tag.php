@@ -13,6 +13,6 @@ class Tag extends Model
     protected $fillable = ['name'];
 
     public function Products(){
-        return this->belongsToMany(Products::class);
+        return $this->belongsToMany(Product::class);
     }
 }

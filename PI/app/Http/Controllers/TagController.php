@@ -34,7 +34,7 @@ class TagController extends Controller
         return view('tag.trash')->with('tags',Tag::onlyTrashed()->get());
     }
     public function restore($tag_id){
-        $tag = Category::onlyTrashed()->where('id',$tag_id)->first();
+        $tag = Tag::onlyTrashed()->where('id',$tag_id)->first();
         $tag->restore();
         session()->flash('success','Tag restaurada com Sucesso!');
         return redirect(route('tag.index'));

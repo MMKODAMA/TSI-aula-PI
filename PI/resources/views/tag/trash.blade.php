@@ -14,7 +14,7 @@
     <tr>
         <td>{{$tag->id}}</td>
         <td>{{$tag->name}}</td>
-        <td><a href="{{ route('category.restore', $tag->id)}}">Restaurar</a></td>
+        <td><a href="{{ route('tag.restore', $tag->id)}}">Restaurar</a></td>
 
     </tr>
     @endforeach

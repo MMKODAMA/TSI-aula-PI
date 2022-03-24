@@ -9,6 +9,7 @@
         <tr>
             <td scope="col">ID</td>
             <td scope="col">Nome</td>
+            <td scope="col">Numero de Produtos</td>
             <td></td>
             <td></td>
         </tr>
@@ -18,6 +19,7 @@
     <tr>
         <td>{{$tag->id}}</td>
         <td>{{$tag->name}}</td>
+        <td>{{$tag->Products->count()}}</td>
         <td><a href="{{ route('tag.edit', $tag->id)}}">Editar</a></td>
         <td><a href="{{ route('tag.destroy', $tag->id)}}">Apagar</a></td>
 

@@ -16,6 +16,7 @@
                 <td scope="col" >Description</td>
                 <td scope="col">Preço</td>
                 <td scope="col">Stock</td>
+                <td scope="col">Tags</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -30,6 +31,7 @@
             <td>{{$product->description}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->stock}}</td>
+            <td>@foreach($product->Tags()->get() as $tag) {{$tag->name}} @endforeach</td>
             <td><a href="{{ route('product.edit', $product->id)}}">Editar</a></td>
             <td><a href="{{ route('product.destroy', $product->id)}}">Apagar</a></td>
 

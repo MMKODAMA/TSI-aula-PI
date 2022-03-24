@@ -15,4 +15,10 @@ class Product extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
+    public function Tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+    public function hasTag($tag_id){
+        return in_array($tag_id,$this->Tags->pluck('id')->toArray());
+    }
 }

@@ -29,10 +29,12 @@ class ProductController extends Controller
         return redirect(route('product.index'));
     }
     public function edit(Product $product){
-        return view('product.edit')->with(['product'=>$product,'categories' => Category::all()]);
+        return view('product.edit')->with(['product'=>$product,'categories' => Category::all(),'tags'=>Tag::all()]);
     }
     public function update(Product $product, Request $request){
+
         $product->update($request->all());
+        $product->Tags()->sync($request->tags);
         session()->flash('success','Produto Editado com Sucesso!');
         return redirect(route('product.index'));
     }

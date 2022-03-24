@@ -15,11 +15,18 @@
         <input class="form-control" type="number" name="stock" value="{{$product->stock}}">
         <label for="category_id">Selecione uma categoria:  </label>
         <select class="form-select mb-3" name="category_id">
+
             @foreach($categories as $category)
             <option value="{{$category->id}}"
                 {{$product->category_id == $category->id ? 'selected' : '' }}>
                 {{$category->name}}</option>
                 @endforeach
+            </select>
+            <label for="tag_id">Selecione uma tag:</label>
+            <select multiple name="tags[]">
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}" {{$product->hasTag($tag->id) ? 'selected' : '' }}>{{$tag->name}}</option>
+            @endforeach
             </select>
             <br>
             <button class="btn btn-primary" type="submit">Enviar</button>
